@@ -1,0 +1,210 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+@import "../../../colors";
+@import "../../../utils/animate.min";
+
+$zIndex-lvl-5: 250;
+$MontSerrat: 'Montserrat', 'Arial Black', sans-serif;
+$RaleWay: 'Raleway', 'Arial', sans-serif;
+@mixin smooth {
+  -webkit-font-smoothing: antialiased;
+}
+
+.previewDialog {
+  max-height: 1440px;
+}
+
+
+.item {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.onePress {
+  display: none;
+}
+
+.slide {
+  height: 645px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-color: $grey-1;
+}
+
+.slide--content {
+  position: relative;
+  display: inline-block;
+  top: 130px;
+  left: 140px;
+  color: $grey-4;
+}
+
+.slide--button {
+  margin-top: 50px;
+}
+
+/**TODO не стандартезировано использование изображений
+
+ */
+.slide--img {
+  position: absolute;
+  height: 100%;
+  top: -57%;
+  right: 56%;
+  img {
+  }
+}
+
+.slick-slide.slick-active.slick-current .slide--img {
+  display: block;
+  animation: fadeInRight .5s both .5s;
+}
+
+.slick-slide .slide--img {
+  display: none;
+
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+
+.slick-next:before, .slick-prev:before {
+  content: ''
+}
+
+.slick-dots {
+  bottom: 100px;
+  left: 140px;
+  width: auto;
+}
+
+.slick-dots li.slick-active button:before {
+  color: $gold;
+}
+
+.slick-dots li button:before {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.slick-slide .slide--content h2 {
+  display: none;
+
+}
+
+.slick-slide.slick-active.slick-current .slide--content h2 {
+  display: block;
+  animation: fadeInRight .4s both .4s;
+}
+
+.slick-slide .slide--content span {
+  display: none;
+
+}
+
+.slick-slide.slick-active.slick-current .slide--content span {
+  display: block;
+  animation: fadeInRight .45s both .45s;
+  max-width: 560px;
+
+  // Помогает сместить вниз .slide--button
+  margin-bottom: 55px;
+}
+
+.slick-slide .slide--content .slide--button {
+  display: none;
+
+}
+
+.slick-slide.slick-active.slick-current .slide--content .slide--button {
+  display: inline;
+  animation: fadeInRight .55s both .55s;
+}
+
+.slick-dots li {
+  width: 80px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+//Пробуем стилизовать кастомные элементы для слайдера:
+
+.slide--content h2 {
+  font-family: $MontSerrat;
+  font-size: 48px;
+  font-weight: 800;
+  color: $grey-4;
+
+  margin: 0;
+  line-height: 1;
+
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+
+  @include smooth
+}
+
+.slide--content span {
+  font-family: $RaleWay;
+  font-size: 18px;
+  font-weight: 500;
+
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-align: left;
+  color: $grey-3;
+
+  margin-bottom: 55px;
+  margin-top: 30px;
+
+  @include smooth
+}
+
+//dots imgs classes
+
+.dot {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    height: 456px;
+
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+
+  }
+  .slide--content {
+    top: 30px;
+    left: 10px;
+  }
+  .slide--content h2 {
+    font-size: 36px;
+  }
+  .slide--content span {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .slick-dots {
+    bottom: 30px;
+    left: 0;
+    overflow: scroll;
+    display: flex;
+  }
+  .slick-dots li {
+    margin: 0 15px;
+    width: 40px;
+    height: 40px;
+  }
+}
